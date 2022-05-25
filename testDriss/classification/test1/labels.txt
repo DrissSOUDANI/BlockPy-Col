@@ -1,0 +1,6 @@
+0 Souris
+1 Rien
+2 Lunettes
+3 Transformateur
+4 Ruban adhesif
+5 Feutre
