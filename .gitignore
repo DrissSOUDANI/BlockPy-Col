@@ -1,0 +1,8 @@
+# Dossiers non versionnés
+_sources/
+_ds_download/
+_testDriss/
+
+# Modèles IA à ne PAS committer
+*.pth
+*.pt
