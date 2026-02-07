@@ -953,6 +953,11 @@ function buildCategory_OpenCV2_ImagesImmatriculation() {
 
         '<block type="driss_opencv2_vc_release"></block>' +
 
+        '<block type="driss_opencv2_vc_destroy_all_windows"></block>' +
+        '<block type="driss_opencv2_vc_destroy_this_window">' +
+        '   <value name="TITLE_WINDOW"><shadow type="text"><field name="TEXT">Titre de la fenêtre</field></shadow></value>' +
+        '</block>' +
+
         '<block type="driss_opencv2_cv_next_frame"></block>' +
 
         '<block type="driss_opencv2_imread">' +
@@ -1013,6 +1018,11 @@ function buildCategory_OpenCV2_reconnaissance_faciale() {
         '</block>' +
 
         '<block type="driss_opencv2_vc_release"></block>' +
+
+        '<block type="driss_opencv2_vc_destroy_all_windows"></block>' +
+        '<block type="driss_opencv2_vc_destroy_this_window">' +
+        '   <value name="TITLE_WINDOW"><shadow type="text"><field name="TEXT">Titre de la fenêtre</field></shadow></value>' +
+        '</block>' +
 
         '<block type="driss_opencv2_cv_next_frame"></block>' +
 
@@ -1182,10 +1192,10 @@ function buildCategory_OpenCv2() {
         buildCategory_OpenCV2_ImagesStatiques() +
 
         //Catégorie OpenCV2 -> Lecture plaque d'Immatriculation
-        buildCategory_OpenCV2_ImagesImmatriculation() +
+        //buildCategory_OpenCV2_ImagesImmatriculation() +
 
         //Catégorie OpenCV2 -> Reconnaissance faciale
-        buildCategory_OpenCV2_reconnaissance_faciale()+
+        //buildCategory_OpenCV2_reconnaissance_faciale()+
 
         //Catégorie OpenCV2 -> Flux vidéo
         buildCategory_OpenCV2_FluxVideo() +
@@ -1467,10 +1477,15 @@ function buildCategory_Detection(){
 function buildCategory_IA() {
     openCV2 = '' +
         '<category name="IA"  colour="' + Blockly.Msg.drissOpenCV_HUE + '">' +
+
+        //Catégorie IA -> Lecture plaque d'Immatriculation
+        buildCategory_OpenCV2_ImagesImmatriculation() +
+
+        //Catégorie IA -> Reconnaissance faciale
+        buildCategory_OpenCV2_reconnaissance_faciale()+
         
         buildCategory_Detection() +
 
-      
         '</category>'
 
     return (openCV2);
