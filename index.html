@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="utf-8">
+    <title>BlockPy@Col : Phyton au collège</title> 
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="./src/jquery/3.5.1/jquery-3.5.1.min.js"></script>
+    
+    <!-- Blockly -->
+    <script type="text/javascript" src="blockly/blockly_uncompressed.js"></script>
+    <script type="text/javascript" src="blockly/blocks_compressed.js"></script>
+    <script type="text/javascript" src="blockly/python_compressed.js"></script>
+    <script type="text/javascript" src="blockly/pseudo_compressed.js"></script>
+    <script type="text/javascript" src="blockly/javascript_compressed.js"></script>
+    
+    <script type="text/javascript" src="blockly/msg/js/en.js"></script>
+    
+    <!-- Skulpt -->
+    <script type="text/javascript" src="skulpt/dist/skulpt.min.js"></script>
+    <script type="text/javascript" src="skulpt/dist/skulpt-stdlib.js"></script>
+    <!--DEVO IMPORTARE SKULPT PERCHE' FA IL PARSER DEL CODICE PYTHON E PERMETTE LA CONVERSIONE IN XML. SENZA SKULPT SONO TUTTI RAW_BLOCK
+    VEDI RIGA 486 editor.js. CONVERT SOURCE E' UN METODO DI PythonToBlock E QUEL METODO RICHIAMA Sk.parse(.., ..)
+    In env Sk, in type Sk.builtin
+
+    MODIFICATO ENV E TYPE!!!!! SPOSTARE LA DICHIARAZIONE DI Sk.builtin-->
+    
+    <!-- Source Code à revoir-->
+    <script type="text/javascript" src="src/python_to_blockly.js"></script>
+    <script type="text/javascript" src="src/imported.js"></script>
+
+    <!-- generateurs de code Python-->
+    <script type="text/javascript" src="blockly/generators/python.js"></script>
+
+    
+    
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_loops.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_loops.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_logic.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_logic.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_maths.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_maths.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_lists.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_lists.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_texts.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_texts.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_variables.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_variables.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_procedures.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_procedures.js"></script>
+
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_openCV.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_openCV.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_openCV2.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_openCV2.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_inputs.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_inputs.js"></script>
+
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_ML.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_ML.js"></script>
+
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/drissGrove/driss_grove.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/drissGrove/driss_grove.js"></script>
+
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_yolo.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_yolo.js"></script>
+
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_ia_detection.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_ia_detection.js"></script>
+
+    <script type="text/javascript" src="src/blockly_blocks/drissBlocks/driss_ia_gestes.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/drissGeneratorPython/driss_ia_gestes.js"></script>
+
+    <!--A revoir
+    <script type="text/javascript" src="src/blockly_blocks/class.js"></script>
+    <script type="text/javascript" src="src/python_errors.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/comment.js"></script>
+    <script type="text/javascript" src="src/blockly_blocks/comprehensions.js"></script>
+    <script type="text/javascript" src="./blockly/appengine/storage.js"></script>
+    
+    -->
+   
+
+    
+
+    
+    <link rel="stylesheet" type="text/css" href="css/blockPy@Col.css"/>
+    <link rel="stylesheet" type="text/css" href="css/roundButtons.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-toggle.min.css" />
+    
+    <script type="text/javascript" src="src/utils/clipboard/clipboard.min.js"></script>
+    <script type="text/javascript" src="src/utils/prettify/prettify.js"></script>
+    <link rel="stylesheet" type="text/css" href="src/utils/prettify/prettify.css" />
+    
+    <!--<link rel="stylesheet" type="text/css" href="./css/styles.css"/>-->
+
+
+    <script type="text/javascript" src="src/blockly_blocks/msg/fr.js"></script>
+    
+   
+    <link rel="stylesheet" type="text/css" href="./fontawesome-free/5.13.0/css/all.css"/>
+    
+    <script type="text/javascript" src="src/editor.js"></script>
+
+    
+
+</head>
+<body >  
+    <div id ="divTitre" class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Brand, toggle pour l'affichage en version mobile -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                                
+                            <a class="navbar-brand  hidden-xs hidden-sm" href="#">
+                                <img src="media/image_navBar.png" class="img-responsive" style="margin-top: -10px;">
+                            </a>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div id="btns_blocks">
+        
+
+        
+        
+        <a id="btn_saveXML" href="#" role='button' class="btn btn-default">
+            <i class="far fa-save"> </i> Enregistrer les blocs
+        </a>
+    
+        <button id="btn_loadXML" role='button' class="btn btn-default">
+            <i class="fas fa-file-download"> </i> Charger les blocs
+        </button>
+        <input type="file" id="load"  style="display: none;"/>
+
+        <button id="btn_redo" class="btn btn-default">
+            <i class="fas fa-redo"></i>
+        </button>
+        <button id="btn_undo" class="btn btn-default">
+            <i class="fas fa-undo"></i>
+        </button> 
+
+        <button id="btn_eye" class="btn btn-default">
+            <span id="icon_btn_eye" class="glyphicon glyphicon-eye-open"> </span>
+        </button>
+        
+        <button id="btn_block_capture" class="btn btn-default">
+            <i class="fas fa-camera"></i>
+        </button>
+
+
+
+        <!-- Bouton  de prévisualisation du code-->
+        <button id="btn_preview" class="btn btn-default">
+            <i class="fab fa-python"></i>
+        </button>
+
+        <button id="btn_about" href="#" class="btn btn-default" data-toggle="modal" data-target="#aboutModal">
+            <i class="fas fa-info"></i><span id="span_about" class="hidden-md hidden-sm hidden-xs"> </span>
+        </button>
+
+        <a id="btn_download" href="https://github.com/DrissSOUDANI/BlockPy-Col/archive/refs/heads/main.zip" class="btn btn-default" data-toggle="modal" data-target="#aboutModal">
+            <i class="fas fa-download"></i>
+            <span id="span_about" class="hidden-md hidden-sm hidden-xs"> </span>
+        </a>
+
+    </div>
+
+   
+   <!-- <a id="btn_saveXML"  href="#" role='button'>save </a> 
+     <a id="btn_fakeload"  href="#" role='button'>Load</a><input type="file" id="load"  style="display: none;"/>
+    -->
+
+    <!-- zone de prévisualisation du code-->
+    <div id="toggle" class="modal-content" style="display: none;">
+        <pre id="pre_previewPython"></pre>			
+        <button id="btn_CopyCode" class="btn btn-warning btn_copy_code" data-clipboard-action="copy" data-clipboard-target="#pre_previewPython">
+            <span class="glyphicon glyphicon-duplicate"> </span>
+        </button>
+    </div>
+
+    <div id="divBody" >
+        <div style='height:100%'>
+            <div id="blockly-div" class='blockly-div'  ></div>
+        </div>
+    <!--
+    <div class='blockpy-text' style='height: 450px '>
+        <textarea class='codemirror-div' style='height:100%; width: 100%'></textarea>
+    </div>
+    -->
+    
+    
+    </div>
+
+    <div id ="footer"  >	
+        <div class="footer-left">
+                
+        </div>
+        <div class="footer-right">
+            <a href="mailto:driss.soudani@ac-nancy-metz.fr" target="_top">© Driss SOUDANI</a> 2021-2024           
+        </div>
+	</div>
+
+<script>
+    var editor = new BlockPyEditor(); 
+    // Affichage des images dans les blocs : activé par défaut
+    //BlockPyEditor.showBlockImages = true;
+    // Empêche les boucles si on rerender pendant un event
+    //BlockPyEditor._isApplyingImages = false;
+
+</script>
+
+</body>
+</html>

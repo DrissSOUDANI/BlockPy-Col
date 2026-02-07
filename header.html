@@ -1,0 +1,76 @@
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+                    <!-- Brand, toggle pour l'affichage en version mobile -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                            
+                        <a class="navbar-brand  hidden-xs hidden-sm" href="#">
+                            <img src="media/image_navBar.png" class="img-responsive">
+                        </a>
+                    </div>
+
+                    <!-- Liens de navigation, formulaires et autres -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon glyphicon-download-alt"></span> Télécharger <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+            
+                                    <li>
+                                        <a href="https://github.com/DrissSOUDANI/Blockly-Col" target="_blanck" title="télécharger Blockly@Col sur GitHub">
+                                        <span class="glyphicon glyphicon glyphicon-paperclip"></span> Blockly@Col v3 (13/12/2021)</a>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        <a href="./librairies-Arduino/libraries-08-03-2020.zip" target="_blanck" title="télécharger Les librairies Arduino à utiliser avec Blockly@Col">
+                                        <span class="glyphicon glyphicon glyphicon-link"></span>Librairies pour Arduino.1.8.5 (13/12/2021)</a>
+                                    </li>
+                                        
+                                    <li>
+                                        <a href="./librairies-Arduino/arduino-1.8.5_for_Blockly@Col_V2022.zip" target="_blanck" title="télécharger Arduino 1.8.5 avec les librairies à utiliser avec Blockly@Col - inclut les cartes LinkItOne et D1R32 ">
+                                        <span class="glyphicon glyphicon glyphicon-link"></span>Arduino.1.8.5 (standard+LinkItOne+D1R32+190 librairies) (29/12/2021)</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-folder-open"></span> <span id="span_fichier"></span>Fichiers <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+
+                                    <li >
+                                        <a id="btn_saveXML"  href="#" role='button'>
+                                            <span class="glyphicon glyphicon-floppy-save"></span>Sauvegarder en XML<span id="span_saveXML"> </span>
+                                        </a>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        <a id="btn_fakeload"  href="#" role='button'>
+                                            <span class="glyphicon glyphicon-open"></span>Charger un fichier XML<span id="span_fakeload"> </span>
+                                        </a>
+                                        <input type="file" id="load" style="display: none;" />
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <button id="btn_about" href="#" class="btn btn-default" data-toggle="modal" data-target="#aboutModal">
+                                <span class="glyphicon glyphicon-user"> </span><span id="span_about" class="hidden-md hidden-sm hidden-xs"> </span></button>
+                            </li>
+                            
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+			    </div><!-- /.container-fluid -->
+			</nav>
+	    </div>
+    </div>
