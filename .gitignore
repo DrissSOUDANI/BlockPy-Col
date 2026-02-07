@@ -6,3 +6,6 @@ _testDriss/
 # Modèles IA à ne PAS committer
 *.pth
 *.pt
+
+# Mfichiers Python
+*.py
